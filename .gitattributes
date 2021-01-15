@@ -1,5 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 reclaimourpride2.svg filter=lfs diff=lfs merge=lfs -text
+sketching3.svg filter=lfs diff=lfs merge=lfs -text
 *.gif filter=lfs diff=lfs merge=lfs -text
 *.jpg filter=lfs diff=lfs merge=lfs -text
