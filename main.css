@@ -1,21 +1,79 @@
+html {
+	font-family: sans-serif;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	margin: 0;
+	padding: 0;
+}
 body {
-  padding: 0;
-  margin: 0;
   background: #0D0D30;
-    font-family: "Avenir", serif;
+  background: linear-gradient(rgba(13,13,48,1) 10%, rgba(37,37,69,0.9248074229691877) 39%, rgba(225,250,255,0.9136029411764706) 100%);
+    font-family: "Avenir";
   font-style: normal;
   font-weight: 40;
   font-variant-ligatures: normal;
-  font-size: 1rem;
+  font-size: 1rem
   letter-spacing: 1px;
    color: white;
+}
+
+header,
+main,
+menu,
+nav {
+    display: block;
+}
+button {
+    color: inherit;
+	font: inherit;
+	margin: 0;
+}
+
+.mob_only {
+    
+    display:none;
+}
+
+.dt_only {
+	display: block;
+}
+
+.screen-reader-text {
+  display: none !important;
+}
+
+#xf_nav_menu {
+  position: fixed;
+  bottom: 1em;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 100%;
+  left: 1em;
+  z-index: 99;
+}
+#xf_nav_menu li {
+font-size: 1.5em;
+margin-right: 0.5em;
+background-color: #FFF;
+padding: 10px;
+}
+
+.close--label {
+  height: 68px;
+    width: 50px;
+    background-size: 40px;
+    padding: 10px 10px 10px 50px !important;
+  background-image: url(images/close_menu_icon.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 p {
   width: 890px;
   margin: 0 auto;
   
-    font-family: "Avenir", serif;
+    font-family: "Avenir", sans-serif;
   font-style: normal;
   font-weight: 90;
   font-variant-ligatures: normal;
@@ -28,7 +86,7 @@ p1 {
   width: 890px;
   margin: 0 auto;
   
-    font-family: "Avenir Next", serif;
+    font-family: "Avenir Next", sans-serif;
   font-style: normal;
   font-weight: 70;
   font-variant-ligatures: normal;
@@ -149,7 +207,50 @@ ul.nav li:last-child {
   margin-right: 0;
 }
 
+.view-toggle ul li {
+	display: inline-block;
+	width: 26px;
+	transition: all 0.2s ease-in-out;
+	opacity: 0.4;
+}
+.view-toggle ul li:hover {
+	cursor: pointer;
+}
+.view-toggle ul li.is-active {
+	opacity: 1;
+}
 
+ul.nav li.xf_menu {
+  display: none;
+}
+.trigger-single-manifesto ul.nav li.xf_menu {
+  display: block;
+  flex-grow: 0;
+}
+.trigger-single-manifesto ul.nav li.xf_menu .menu_trigger .close--label,
+.trigger-single-manifesto ul.nav li.xf_menu .menu_trigger.is-active .menu--label {
+  display: none;
+}
+.trigger-single-manifesto ul.nav li.xf_menu .menu_trigger.is-active .close--label {
+  display: block;
+}
+.trigger-single-manifesto ul.nav li.HaiderMukhit,
+.trigger-single-manifesto ul.nav li.skills,
+.trigger-single-manifesto ul.nav li.contacts {
+  height: 0;
+  overflow: hidden;
+}
+.trigger-single-manifesto .site-header {
+  height: 78px;
+}
+.trigger-single-manifesto .site-header.is-active {
+  height: 156px;
+}
+.trigger-single-manifesto .site-header.is-active ul.nav li.HaiderMukhit,
+.trigger-single-manifesto .site-header.is-active ul.nav li.skills, 
+.trigger-single-manifesto .site-header.is-active ul.nav li.contacts {
+  height: auto;
+}
 .center-navigation {
  	width: 100%;
  }
@@ -172,19 +273,20 @@ background: linear-gradient(to right,  rgba(255,0,255,1) 0%,rgba(255,255,255,1) 
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0004', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
 }
 
-/* hi there haider animation */
+.site-header {
+	display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    width: calc(100% - 20px);
+    height: 156px;
+    top: 10px;
+    z-index: 9;
+    left: 10px;
+    right: 10px;
+    padding: 0em;
 
-.marquee4 {
- text-align:center;
- font-size:20px;
- color:#806596;
- margin-left:0%;
- margin-right:0%;
- border-radius:4px;
- padding:10px;
-  height: 60px;
-  overflow:hidden;
 }
+
 
 /* we reclaim our proud artwork section */
 
@@ -279,4 +381,248 @@ background: transparent;
   color: transparent;
   position: absolute;
   top: 0;
+}
+
+.site-header {
+	display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    width: calc(100% - 20px);
+    height: 156px;
+    top: 10px;
+    z-index: 9;
+    left: 10px;
+    right: 10px;
+    padding: 0em;
+
+}
+
+
+
+
+.hamburger {
+  padding: 0px;
+  display: block;
+  cursor: pointer;
+  position: relative;
+  width: 70px;
+  float: right;
+    z-index: 9999;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: #FFF;
+  border: 0;
+  margin: 0;
+  overflow: visible; }
+  .hamburger:hover {
+    opacity: 1; 
+    background-color: #000;
+  }
+  .hamburger:hover .hamburger-inner, .hamburger:hover .hamburger-inner::before, .hamburger:hover .hamburger-inner::after {
+   background-color: #FFF; 
+  }
+
+.hamburger-box {
+  width: 50px;
+  height: 57px;
+  display: inline-block;
+  position: relative; }
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px; }
+  .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    width: 50px;
+    height: 0.4em;
+    background-color: #000;
+    border-radius: 0px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease; }
+  .hamburger-inner::before, .hamburger-inner::after {
+    content: "";
+    display: block; }
+  .hamburger-inner::before {
+    top: -15px; }
+  .hamburger-inner::after {
+    bottom: -15px; }
+
+/*
+   * Spin
+   */
+.hamburger--spin .hamburger-inner {
+  transition-duration: 0.22s;
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+  .hamburger--spin .hamburger-inner::before {
+    transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in; }
+  .hamburger--spin .hamburger-inner::after {
+    transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+.hamburger--spin.is-active .hamburger-inner {
+  transform: rotate(225deg);
+  transition-delay: 0.12s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+  .hamburger--spin.is-active .hamburger-inner::before {
+    top: 0;
+    opacity: 0;
+    transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out; }
+  .hamburger--spin.is-active .hamburger-inner::after {
+    bottom: 0;
+    transform: rotate(-90deg);
+    transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1); }
+
+/*
+   * Spin Reverse
+   */
+.hamburger--spin-r .hamburger-inner {
+  transition-duration: 0.22s;
+  transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+  .hamburger--spin-r .hamburger-inner::before {
+    transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in; }
+  .hamburger--spin-r .hamburger-inner::after {
+    transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+.hamburger--spin-r.is-active .hamburger-inner {
+  transform: rotate(-225deg);
+  transition-delay: 0.12s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+  .hamburger--spin-r.is-active .hamburger-inner::before {
+    top: 0;
+    opacity: 0;
+    transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out; }
+  .hamburger--spin-r.is-active .hamburger-inner::after {
+    bottom: 0;
+    transform: rotate(90deg);
+    transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1); }
+
+/**
+ * Does the same thing as <meta name="viewport" content="width=device-width">,
+ * but in the future W3C standard way. -ms- prefix is required for IE10+ to
+ * render responsive styling in Windows 8 "snapped" views; IE10+ does not honor
+ * the meta tag. See https://core.trac.wordpress.org/ticket/25888.
+ */
+@-ms-viewport {
+	width: device-width;
+}
+
+@viewport {
+	width: device-width;
+}
+
+/**
+ * 14.1 - >= 710px
+ */
+@media screen and (min-width: 47.01em) {
+.dt_hide {
+  display: none !important;
+} 
+/**
+ * 14.1 - <= 600px
+ */
+@media screen and (max-width: 35.438em) {
+#navigation {
+  position: fixed;
+  width: 100%;
+  top: 79px;
+  transition: 0.4s ease-in-out;
+  left: -100%;
+}
+ul.nav li.xf_menu {
+    display: none;
+}
+.trigger-single-manifesto ul.nav li li.xf_menu {
+    display: none;
+}
+    
+#xf_nav_menu {
+  display: none;
+}
+
+.flex-column--wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+    
+#navigation.is-active {
+  left: 0;
+}
+
+ul.nav {
+    line-height: 1;
+    font-size: 1.5em;
+    display: block;
+    flex-wrap: wrap;
+}	
+
+    
+ul.nav li a {
+    display: block;
+    padding-left: 10px;
+    padding-top: 10px;
+    font-size: 1.4em;
+    padding-right: 10px;
+    border-radius: 0px;
+    padding-bottom: 10px;
+}
+
+    
+h2.site--label {
+  display: block;
+    margin: 0 0 0 0.4em;
+    background: #FFF;
+    padding: 4px 10px 4px;
+    width: calc(100% - 156px);
+    float: left;
+    line-height: 1;
+}
+h2.site--label a {
+  font-size: 2.5em;
+}
+
+.dt_only {
+  display: none;
+}	
+.mob_only {
+  display: block;
+	}
+    
+body, html {
+    overflow-y: scroll !important;
+}
+.main-wrapper, .main-inner-wrapper {
+    min-height: 100%;
+    overflow: scroll;
+    position: relative;
+}
+    
+ul.nav li.contacts, ul.nav li.skills {
+        display: none;
+    }
+    
+/**
+Phone Landscape
+*/
+@media screen and (min-width: 35.439em) and (max-width: 47.000em) {
+.dt_hide {
+  display: none !important;
+} 
+
+#xf_nav_menu {
+  display: none;
+}
+ul.nav {
+    font-size: 2.0em;
+    }	
+.scrolldiv {
+overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100vh !important;
 }
